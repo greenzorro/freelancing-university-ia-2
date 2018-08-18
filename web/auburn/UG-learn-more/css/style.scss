@@ -1,0 +1,622 @@
+//*********************************************************************//
+//                              settings                               //
+//*********************************************************************//
+
+// value settings
+$primary: #193F6B;
+$white: #fff;
+$black: #333;
+$gray_dark: #ccc;
+$gray_light: #fafafa;
+$shadow: 0 0.03rem 0.12rem rgba(0, 0, 0, 0.15);
+$easing: cubic-bezier(0.15, 0.95, 0.41, 0.95);
+
+// responsive break points
+$phone-max: 767px;
+$pad-min: 768px;
+$pad-max: 1279px;
+$pc-min: 1280px;
+
+// functions
+@mixin box-sizing ($value) {
+	-webkit-box-sizing: $value;
+	box-sizing: $value;}
+@mixin transform ($value) {
+	-webkit-transform: $value;
+	transform: $value;}
+@mixin transform-origin ($value) {
+	-webkit-transform-origin: $value;
+	transform-origin: $value;}
+@mixin transition ($value) {
+	-webkit-transition: $value;
+	transition: $value;}
+@mixin transition-transform ($value1,$value2) {
+	-webkit-transition: -webkit-transform $value1 $value2;
+	transition: transform $value1 $value2;}
+@mixin prefix-transition ($value) {
+	-webkit-transition: -webkit-$value;
+	transition: $value;}
+@mixin animation ($value) {
+	-webkit-animation: $value;
+	animation: $value;}
+@mixin display-flex () {
+	display: -webkit-flex;
+	display: flex;}
+@mixin flex-flow ($value) {
+	-webkit-flex-flow: $value;
+	flex-flow: $value;}
+@mixin order ($value) {
+	-webkit-order: $value;
+	order: $value;}
+@mixin flex ($value) {
+	-webkit-flex: $value;
+	flex: $value;}
+@mixin justify-content ($value) {
+	-webkit-justify-content: $value;
+	justify-content: $value;}
+@mixin align-items ($value) {
+	-webkit-align-items: $value;
+	align-items: $value;}
+@mixin align-content ($value) {
+	-webkit-align-content: $value;
+	align-content: $value;}
+@mixin aColor ($value) {
+	color: $value;
+	&:visited {
+		color: $value;}
+	&:hover {
+		color: lighten($value,15%);}
+	&:active {
+		color: $value;}
+}
+@mixin aBgColor ($value) {
+	background-color: $value;
+	&:visited {
+		background-color: $value;}
+	&:hover {
+		background-color: lighten($value,15%);}
+	&:active {
+		background-color: $value;}
+}
+
+
+
+
+//*********************************************************************//
+//                               global                                //
+//*********************************************************************//
+
+* { @include box-sizing (content-box);}
+html, body{
+	height:100%;}
+html {
+	line-height: 1;
+	font-size: 100px;
+}
+body {
+	font-family: -apple-system,Helvetica,Arial,"PingFang SC","Source Han Sans SC","Microsoft YaHei","WenQuanYi MicroHei",sans-serif;
+	line-height: 1.6;
+	font-size: 0.16rem;
+	color: $black;
+	background: $white;}
+a {
+	color: $primary;
+}
+input, textarea, button {
+	font-family: -apple-system,Helvetica,Arial,"PingFang SC","Source Han Sans SC","Microsoft YaHei","WenQuanYi MicroHei",sans-serif;}
+::selection {
+	background: $primary;
+	color: $white;}
+::-moz-selection {
+	background: $primary;
+	color: $white;}
+
+
+
+
+//*********************************************************************//
+//                             components                              //
+//*********************************************************************//
+
+// layout
+// phone
+@media only screen and (max-width: $phone-max){
+	.bg_wrap {
+		padding: 0.4rem 0.2rem;
+	}
+	h2 {
+		margin-bottom: 0.2rem;
+		text-align: center;
+		font-size: 0.24rem;
+		font-weight: bold;
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.bg_wrap {
+		width: 11.7rem;
+		margin: 0 auto;
+		padding: 0.6rem 0;
+	}
+	h2 {
+		margin-bottom: 0.4rem;
+		text-align: center;
+		font-size: 0.34rem;
+		font-weight: bold;
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                               header                                //
+//*********************************************************************//
+
+.header {
+	background: $white;
+	.bg_wrap {
+		@include display-flex ();
+		@include flex-flow (row wrap);
+		@include justify-content (space-between);
+		@include align-items (center);
+		height: 100%;
+		padding-top: 0;
+		padding-bottom: 0;
+		img {
+			display: block;
+			height: 100%;
+		}
+		p {
+			a {
+				margin-left: 0.2rem;
+				color: #252A33;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.header {
+		height: 0.5rem;
+		h1 {
+			height: 40%;
+		}
+		p a {
+			font-size: 0.12rem;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.header {
+		height: 0.8rem;
+		h1 {
+			height: 50%;
+		}
+		p a {
+			font-size: 0.2rem;
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                               sign_up                               //
+//*********************************************************************//
+
+.sign_up {
+	background-color: $primary;
+	background-repeat: no-repeat;
+	.bg_wrap {
+		.instruction {
+			h1 {
+				color: $white;
+				font-weight: 100;
+				b {
+					font-weight: 1000;
+				}
+			}
+			video {
+				width: 100%;
+			}
+		}
+		.form {
+			overflow: hidden;
+			background: $white;
+			border-radius: 0.04rem;
+			position: relative;
+			h2 {
+				text-align: center;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.sign_up {
+		background-position: center top;
+		background-size: 300%;
+		.bg_wrap {
+			.instruction {
+				padding-bottom: 0.2rem;
+				font-size: 0.2rem;
+			}
+			.form {
+				h2 {
+					margin: 0.2rem 0;
+					font-size: 0.16rem;
+				}
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.sign_up {
+		background-position: center center;
+		background-size: cover;
+		.bg_wrap {
+			@include display-flex ();
+			@include justify-content (space-around);
+			@include flex-flow (row wrap);
+			@include align-items (center);
+			.instruction {
+				@include flex (0 1 50%);
+				font-size: 0.4rem
+			}
+			.form {
+				@include flex (0 1 45%);
+				max-width: 3.8rem;
+				h2 {
+					margin: 0.2rem 0;
+					font-size: 0.24rem;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                                intro                                //
+//*********************************************************************//
+
+.intro {
+	background: $primary;
+	color: $white;
+	ul {
+		@include display-flex ();
+		@include justify-content (space-between);
+		li {
+			text-align: center;
+			i {
+				display: inline-block;
+				width: 0.8rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				border: 2px solid $white;
+				border-radius: 50%;
+				img {
+					margin: 0.15rem 0 0;
+				}
+			}
+			b {
+				display: block;
+				margin: 0.2rem 0 0.1rem;
+				font-weight: bold;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.intro {
+		ul {
+			@include flex-flow (column wrap);
+			@include align-items (center);
+			li {
+				margin: 0.2rem 0;
+				b {
+					font-size: 0.16rem;
+				}
+				p {
+					font-size: 0.14rem;
+				}
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.intro {
+		ul {
+			@include flex-flow (row wrap);
+			@include align-items (flex-start);
+			li {
+				@include flex (0 1 30%);
+				i {
+				}
+				b {
+					font-size: 0.2rem;
+				}
+				p {
+					font-size: 0.16rem;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                                 data                                //
+//*********************************************************************//
+
+.data {
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.data {
+		.img_PC {
+			display: none;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.data {
+		.img_mobile {
+			display: none;
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                                 info                                //
+//*********************************************************************//
+
+.info {
+	ul {
+		@include display-flex ();
+		li {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.info {
+		ul {
+			@include flex-flow (column wrap);
+			@include justify-content (space-around);
+			@include align-items (center);
+			li {
+				margin: 0.1rem 0;
+			}
+			p {
+				font-size: 0.16rem;
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.info {
+		ul {
+			@include flex-flow (row wrap);
+			@include justify-content (center);
+			@include align-items (flex-start);
+			li {
+				@include flex (0 1 35%);
+				margin: 0.2rem 0.5rem;
+			}
+			p {
+				font-size: 0.2rem;
+			}
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                                 map                                 //
+//*********************************************************************//
+
+.map {
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.map {
+		.img_PC {
+			display: none;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.map {
+		.img_mobile {
+			display: none;
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                                 city                                //
+//*********************************************************************//
+
+.city {
+	background: $primary;
+	color: $white;
+	text-align: center;
+	b {
+		font-weight: bold;
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.city {
+		b {
+			font-size: 0.16rem;
+		}
+		p {
+			margin: 0.2rem 0;
+			font-size: 0.14rem;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.city {
+		b {
+			font-size: 0.2rem;
+		}
+		p {
+			padding: 0 20%;
+			margin: 0.3rem 0;
+			font-size: 0.16rem;
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                               people                                //
+//*********************************************************************//
+
+.people {
+	ul {
+		@include display-flex ();
+		@include justify-content (space-between);
+		li {
+			text-align: center;
+			img {
+				display: inline-block;
+				width: 1.2rem;
+			}
+			b {
+				display: block;
+				font-weight: bold;
+			}
+		}
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.people {
+		ul {
+			@include flex-flow (column wrap);
+			@include align-items (center);
+			li {
+				margin: 0.2rem 0;
+			}
+			b {
+				margin: 0.05rem 0;
+				font-size: 0.16rem;
+			}
+			p {
+				font-size: 0.14rem;
+			}
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.people {
+		ul {
+			@include flex-flow (row wrap);
+			@include align-items (flex-start);
+			li {
+				@include flex (0 1 20%);
+			}
+			b {
+				margin: 0.2rem 0 0.1rem;
+				font-size: 0.2rem;
+			}
+			p {
+				font-size: 0.16rem;
+			}
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                               comment                               //
+//*********************************************************************//
+
+.comment {
+	background-size: cover;
+	img {
+		width: 100%;
+	}
+}
+// phone
+@media only screen and (max-width: $phone-max){
+	.comment {
+		background: url(../images/image3_bg_mobile.jpg);
+		.img_PC {
+			display: none;
+		}
+	}
+}
+// pad and pc
+@media only screen and (min-width: $pad-min){
+	.comment {
+		background: url(../images/image3_bg_PC.jpg);
+		.img_mobile {
+			display: none;
+		}
+	}
+}
+
+
+
+
+//*********************************************************************//
+//                               footer                                //
+//*********************************************************************//
+
+.footer {
+	text-align: center;
+	color: #CCCCCC;
+	.bg_wrap {
+		padding: 0.2rem 0;
+	}
+	a {
+		color: #FC8222;
+	}
+	p {
+		margin-top: 0.1rem;
+		color: $black;
+	}
+}

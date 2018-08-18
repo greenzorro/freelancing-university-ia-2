@@ -1,0 +1,51 @@
+﻿#cola-form {
+	padding-bottom: 30px;
+}
+#cola-form .cola-row {
+	margin-bottom: 10px;
+}
+#cola-form .error input, #cola-form .error select {
+	border: 1px solid red;
+}
+#cola-form label {
+	display: block;
+	margin-bottom: 2px;
+	font-size: 12px;
+	font-weight: bold;
+}
+#cola-form label i {
+	margin-right: 5px;
+	color: #900;
+}
+#cola-form input, #cola-form select {
+	border-color: #c1c1c1 #cacaca #dadada;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+	width: 100%;
+	max-width: 100%;
+	padding: 4px 8px;
+	font-size: 12px;
+	box-shadow: inset 0px 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+#cola-form .submit {
+	display: block;
+	border: medium none;
+	font-weight: bold;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	max-width: 100%;
+	padding: 0 36px;
+	width: 100%;
+	background: #d1453d;
+	box-shadow: 0px 3px 0 0 #a33630;
+	text-align: center;
+}
+.error_tip {
+	display: none;
+	text-align: center;
+	color: red;
+}
